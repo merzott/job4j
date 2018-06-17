@@ -1,2 +1,3 @@
-# job4j
-// first change 
+# job4j repository
+# Репозиторий Меркина Романа
+# для изучения Java  
