@@ -10,7 +10,6 @@ public class Calculate {
 	/**
 	* First programm 
 	* @param args Array of string arguments
-	* @throws exteptions Exteptions are not granted
 	*/
 	public static void main(String[] args) {
 		System.out.println("Hello World");
