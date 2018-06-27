@@ -8,7 +8,7 @@ package ru.job4j.calculate;
 */
 public class Calculate {
 	/**
-	* First programm 
+	* First program
 	* @param args Array of string arguments
 	*/
 	public static void main(String[] args) {
@@ -22,5 +22,13 @@ public class Calculate {
 	*/
 	public String echo(String name) {
 		return "Echo, echo, echo : " + name;
-	}	
+	}
+	/**
+	 * Method echo2.
+	 * @param name Your name.
+	 * @return Echo plus your name.
+	 */
+	public String echo2(String name) {
+		return "Echo, echo, echo : " + name;
+	}
 }
