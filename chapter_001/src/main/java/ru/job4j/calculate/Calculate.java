@@ -18,10 +18,9 @@ public class Calculate {
 	/**
 	* Method echo.
 	* @param name Your name.
-	*                few
 	* @return Echo plus your name.
 	*/
 	public String echo(String name) {
-		return "Echo, echo, e : " + name;
+		return "Echo, echo, echo : " + name;
 	}	
 }
