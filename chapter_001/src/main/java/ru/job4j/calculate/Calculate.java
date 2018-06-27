@@ -1,6 +1,6 @@
 package ru.job4j.calculate;
 
-/** 
+/**
 * writes "Hello world"
 * @author Roman Merkin (roman.merkin@gmail.com)
 * @version $Id$
@@ -8,7 +8,7 @@ package ru.job4j.calculate;
 */
 public class Calculate {
 	/**
-	* First programm 
+	* First program
 	* @param args Array of string arguments
 	*/
 	public static void main(String[] args) {
@@ -18,10 +18,9 @@ public class Calculate {
 	/**
 	* Method echo.
 	* @param name Your name.
-	*                few
 	* @return Echo plus your name.
 	*/
 	public String echo(String name) {
-		return "Echo, echo, e : " + name;
+		return "Echo, echo, echo : " + name;
 	}	
 }
