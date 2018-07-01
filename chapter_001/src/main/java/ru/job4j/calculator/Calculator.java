@@ -11,8 +11,8 @@ public class Calculator {
 
     /**
      * Method "add" needs to sum two numbers
-     * @param first
-     * @param second
+     * @param first number
+     * @param second number
      * returns first + second
      */
     public void add(double first, double second) {
@@ -21,8 +21,8 @@ public class Calculator {
 
     /**
      * Method "mul" needs to multiply two numbers
-     * @param first
-     * @param second
+     * @param first number
+     * @param second number
      * returns first * second
      * */
     public void mul(double first, double second) {
@@ -31,8 +31,8 @@ public class Calculator {
 
     /**
      * Method "sub" needs to subtract second number from first
-     * @param first
-     * @param second
+     * @param first number
+     * @param second number
      * returns first - second
      * */
     public void sub(double first, double second) {
@@ -41,8 +41,8 @@ public class Calculator {
 
     /**
      * Method "div" needs to divide first number to second
-     * @param first
-     * @param second
+     * @param first number
+     * @param second number
      * result first / second
      * */
     public void div(double first, double second) {
