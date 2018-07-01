@@ -1,7 +1,7 @@
 package ru.job4j.calculator;
 
 /**
- *  Class Calculator.
+ * Class Calculator is needed to calculate numbers.
  * @author Roman Merkin
  * @version $Id$
  * @since 0.1
@@ -10,7 +10,7 @@ public class Calculator {
     private double result;
 
     /**
-     * Method "add" needs to sum two numbers
+     * Method "add" is needed to sum two numbers
      * @param first number
      * @param second number
      * returns first + second
@@ -20,7 +20,7 @@ public class Calculator {
     }
 
     /**
-     * Method "mul" needs to multiply two numbers
+     * Method "mul" is needed to multiply two numbers
      * @param first number
      * @param second number
      * returns first * second
@@ -30,7 +30,7 @@ public class Calculator {
     }
 
     /**
-     * Method "sub" needs to subtract second number from first
+     * Method "sub" is needed to subtract second number from first
      * @param first number
      * @param second number
      * returns first - second
@@ -40,7 +40,7 @@ public class Calculator {
     }
 
     /**
-     * Method "div" needs to divide first number to second
+     * Method "div" is needed to divide first number to second
      * @param first number
      * @param second number
      * result first / second
