@@ -31,7 +31,7 @@ public class Point {
     public static void main(String[] args) {
         Point a = new Point(1, 1);
         Point b = new Point(4, 5);
-        double distance = a.distanceToPoint(b);
+        double distance = a.distanceToPoint(b); // distance between points a and b
 
         System.out.println("xA = " + a.x);
         System.out.println("yA = " + a.y);
