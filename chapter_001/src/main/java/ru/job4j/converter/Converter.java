@@ -9,7 +9,7 @@ package ru.job4j.converter;
 public class Converter {
 
     /**
-     * Convert Rubles to Euro
+     * Convert Rubles to Euro.
      * @param rubles Rubles value
      * @return Euro value
      * */
@@ -18,7 +18,7 @@ public class Converter {
     }
 
     /**
-     * Convert Rubles to USDollars
+     * Convert Rubles to USDollars.
      * @param rubles Rubles value
      * @return USDollars value
      */
@@ -27,7 +27,7 @@ public class Converter {
     }
 
     /**
-     * Convert Euro to Rubles
+     * Convert Euro to Rubles.
      * @param euro Euro value
      * @return Rubles value
      * */
@@ -36,7 +36,7 @@ public class Converter {
     }
 
     /**
-     * Convert USDollars to Rubles
+     * Convert USDollars to Rubles.
      * @param usDollars USDollars value
      * @return Rubles value
      * */
