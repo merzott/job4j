@@ -20,7 +20,7 @@ public class FitTest {
     public void maleHeight180ThenWeight92() {
         Fit fit = new Fit();
         double weight = fit.maleWeight(180);
-        assertThat(weight, closeTo(92.0,0.1));
+        assertThat(weight, closeTo(92.0, 0.1));
     }
 
     /**
@@ -31,7 +31,7 @@ public class FitTest {
     public void femaleHeight170ThenWeight69() {
         Fit fit = new Fit();
         double weight = fit.femaleWeight(170);
-        assertThat(weight, closeTo(69.0,0.1));
+        assertThat(weight, closeTo(69.0, 0.1));
     }
 
 }
