@@ -44,6 +44,36 @@ public class MaxTest {
         assertThat(max.max(2, 2), is(2));
     }
 
+    /**
+     * Test "maxThreeNum" method.
+     * max from 1,2,3 = 3
+     */
+    @Test
+    public void maxThreeNumOneTwoThreeThanThree() {
+        Max max = new Max();
+        assertThat(max.maxThreeNum(1, 2, 3), is(3));
+    }
+
+    /**
+     * Test "maxThreeNum" method.
+     * max from 1,2,3 = 3
+     */
+    @Test
+    public void maxThreeNumThreeOneTwoThanThree() {
+        Max max = new Max();
+        assertThat(max.maxThreeNum(3, 1, 2), is(3));
+    }
+
+    /**
+     * Test "maxThreeNum" method.
+     * max from 1,2,3 = 3
+     */
+    @Test
+    public void maxThreeNumZeroMinusOneMinusFiveThanZero() {
+        Max max = new Max();
+        assertThat(max.maxThreeNum(0, -1, -5), is(0));
+    }
+
 //  /*  *//**
 //     * Test "max" method.
 //     * first < second. Both negative.
