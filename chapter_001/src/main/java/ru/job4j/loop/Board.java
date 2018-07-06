@@ -17,14 +17,15 @@ public class Board {
      */
     public String paint(int xSize, int ySize) {
         StringBuilder str = new StringBuilder();
-        String ln = System.getProperty(System.lineSeparator());
+        String ln = System.lineSeparator();
         for (int j = 0; j < ySize; j++) {
             for (int i = 0; i < xSize; i++) {
-                if (j % 2 == 0) {
-                    str.append((i % 2 == 0) ? 'X' : ' ');
-                } else {
-                    str.append((i % 2 == 0) ? ' ' : 'X');
-                }
+//                if (j % 2 == 0) {
+//                    str.append((i % 2 == 0) ? 'X' : ' ');
+//                } else {
+//                    str.append((i % 2 == 0) ? ' ' : 'X');
+//                }
+                str.append(((i + j) % 2 == 0) ? 'X' : ' ');
             }
             str.append(ln);
         }

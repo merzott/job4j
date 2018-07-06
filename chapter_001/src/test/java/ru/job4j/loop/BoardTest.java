@@ -20,7 +20,7 @@ public class BoardTest {
     @Test
     public void paintBoardWidthThreeAndHeightThreeThanStringWithThreeColumnsAndThreeRows() {
         Board board = new Board();
-        String ln = System.getProperty(System.lineSeparator());
+        String ln = System.lineSeparator();
         String boardStr = board.paint(3, 3);
         assertThat(boardStr, is(String.format("X X%s X %sX X%s", ln, ln, ln)));
     }
@@ -32,7 +32,7 @@ public class BoardTest {
     @Test
     public void paintBoardWidthFiveAndHeightFourThanStringWithFiveColumnsAndFourRows() {
         Board board = new Board();
-        String ln = System.getProperty(System.lineSeparator());
+        String ln = System.lineSeparator();
         String boardStr = board.paint(5, 4);
         assertThat(boardStr, is(String.format("X X X%s X X %sX X X%s X X %s", ln, ln, ln, ln)));
     }
