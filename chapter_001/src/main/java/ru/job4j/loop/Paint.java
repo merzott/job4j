@@ -93,10 +93,10 @@ public class Paint {
         return screen.toString();
     }
 
-    public static void main(String[] args) {
-        Paint paint = new Paint();
-        System.out.print(paint.leftTrl(5));
-        System.out.print(paint.rightTrl(5));
-        System.out.print(paint.pyramid(5));
-    }
+//    public static void main(String[] args) {
+//        Paint paint = new Paint();
+//        System.out.print(paint.leftTrl(5));
+//        System.out.print(paint.rightTrl(5));
+//        System.out.print(paint.pyramid(5));
+//    }
 }
