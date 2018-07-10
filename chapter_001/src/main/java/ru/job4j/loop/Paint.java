@@ -9,28 +9,6 @@ import java.util.function.BiPredicate;
  * @since 0.1
  */
 public class Paint {
-//    /**
-//     * Method "pyramid" draws pyramid using "^".
-//     * @param height number of rows of pyramid
-//     * @return String variable. Pyramid witch has "height" num of rows
-//     */
-//    public String pyramid(int height) {
-//        StringBuilder pyramidStr = new StringBuilder();
-//        for (int row = 0; row < height; row++) {
-//            for (int column = 1; column < 2 * height; column++) {
-//                if ((column < height - row) || (column > height + row)) {
-//                    pyramidStr.append(' ');
-//                } else {
-//                    pyramidStr.append('^');
-//                }
-//            }
-//            //pyramidStr.append(System.getProperty("line.Separator"));// null value???
-//            //pyramidStr.append(System.getProperty(System.lineSeparator()));// null value???
-//            pyramidStr.append(System.lineSeparator());
-//        }
-//        return pyramidStr.toString();
-//    }
-
     /**
      * Method "rightTrl" need to draws right triangle like String variable.
      * @param height height of triangle
@@ -70,7 +48,6 @@ public class Paint {
         );
     }
 
-
     /**
      * Method "loopBy" need to draws arbitrary pyramid like String variable.
      * @param height height of the pyramid
@@ -92,11 +69,4 @@ public class Paint {
         }
         return screen.toString();
     }
-
-//    public static void main(String[] args) {
-//        Paint paint = new Paint();
-//        System.out.print(paint.leftTrl(5));
-//        System.out.print(paint.rightTrl(5));
-//        System.out.print(paint.pyramid(5));
-//    }
 }
