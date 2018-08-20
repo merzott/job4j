@@ -38,7 +38,6 @@ public class TwoSortedArraysUnitedTest {
         int[] expect = {1, 2, 3, 4, 5, 6};
         int[] union = twoSortedArraysUnited.union(arr1, arr2);
 
-       //System.out.println(1);
         assertThat(union, is(expect));
     }
 
