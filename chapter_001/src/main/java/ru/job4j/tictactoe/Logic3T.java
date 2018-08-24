@@ -45,6 +45,10 @@ public class Logic3T {
                 || this.fillBy(Figure3T::hasMarkX, this.table.length - 1, 0, -1, 1);
     }
 
+    /**
+     * Method "isWinnerO" detects if O is winner.
+     * @return true if X is winner
+     */
     public boolean isWinnerO() {
         return this.fillBy(Figure3T::hasMarkO, 0, 0, 1, 0)
                 || this.fillBy(Figure3T::hasMarkO, 0, 1, 1, 0)
@@ -56,6 +60,11 @@ public class Logic3T {
                 || this.fillBy(Figure3T::hasMarkO, this.table.length - 1, 0, -1, 1);
     }
 
+
+    /**
+     * Method "hasGap" detects if there are free cells.
+     * @return true if there is one free cell at least
+     */
     public boolean hasGap() {
         boolean result = false;
 
