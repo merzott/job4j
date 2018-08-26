@@ -19,7 +19,7 @@ public class Tracker {
      * @return unique Id ot type String
      */
     private String generateId() {
-        return String.valueOf(random.nextInt() + System.currentTimeMillis());
+        return String.valueOf(this.random.nextInt() + System.currentTimeMillis());
     }
 
     /**
@@ -29,7 +29,7 @@ public class Tracker {
      */
     public Item addItem(Item item) {
         item.setId(generateId());
-        this.item[position++] = item;
+        this.item[this.position++] = item;
         return item;
     }
 
@@ -41,6 +41,7 @@ public class Tracker {
     public void replace(String id, Item item) {
         for (int i = 0; i < this.item.length; i++) {
             if (id.equals(this.item[i].getId())) {
+                item.setId(generateId());
                 this.item[i] = item;
                 break;
             }
@@ -49,13 +50,13 @@ public class Tracker {
 
     /**
      * Method "delete" is deletes item by id
-     * @param idunique id of item to delete
+     * @param id unique id of item to delete
      */
     public void delete(String id) {
         int positionToDelete;
         boolean noSuchId = true;
 
-        for (positionToDelete = 0; positionToDelete < position; positionToDelete++) {
+        for (positionToDelete = 0; positionToDelete < this.position; positionToDelete++) {
             if (id.equals(this.item[positionToDelete].getId())) {
                 noSuchId = false;
                 break;
@@ -64,13 +65,13 @@ public class Tracker {
         if (noSuchId) {
             System.out.println("DELETE ITEM: There are no item with id =\"" + id + "\"");
         } else {
-            if (positionToDelete == position - 1) {
+            if (positionToDelete == this.position - 1) {
                 this.item[positionToDelete] = null;
-                --position;
+                --this.position;
             } else {
-                System.arraycopy(this.item, positionToDelete, this.item,
-                                positionToDelete + 1, position - positionToDelete - 1);
-                --position;
+                System.arraycopy(this.item, positionToDelete + 1, this.item,
+                                positionToDelete, this.position - positionToDelete - 1);
+                --this.position;
             }
         }
     }
@@ -80,8 +81,8 @@ public class Tracker {
      * @return array of all items
      */
     public Item[] findAll() {
-        Item[] item = new Item[position];
-        for (int i = 0; i < position; i++) {
+        Item[] item = new Item[this.position];
+        for (int i = 0; i < this.position; i++) {
             item[i] = this.item[i];
         }
         return item;
@@ -94,10 +95,10 @@ public class Tracker {
      */
     public Item[] findByName(String key) {
         Item[] findResult;
-        int[] findIndex = new int[position];
+        int[] findIndex = new int[this.position];
         int totalMatch = 0;
 
-        for (int index = 0; index < position; index++) {
+        for (int index = 0; index < this.position; index++) {
             if (key.equals(this.item[index].getName())) {
                 findIndex[totalMatch++] = index;
             }
@@ -122,7 +123,7 @@ public class Tracker {
     public Item findById(String id) {
         Item findResult = new Item();
         boolean noSuchId = true;
-        for (int index = 0; index < position; index++) {
+        for (int index = 0; index < this.position; index++) {
             if (id.equals(this.item[index].getId())) {
                 findResult = this.item[index];
                 noSuchId = false;

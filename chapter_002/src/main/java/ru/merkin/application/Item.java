@@ -4,6 +4,12 @@ public class Item {
     private String name;
     private String id;
 
+    Item() {}
+
+    Item(String name) {
+        this.name = name;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
