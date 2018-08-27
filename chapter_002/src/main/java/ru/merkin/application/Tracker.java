@@ -24,8 +24,8 @@ public class Tracker {
 
     /**
      * Method "addItem" is register new item to system
-     * @param item new item which have name
-     * @return
+     * @param item new item
+     * @return item with generated id
      */
     public Item addItem(Item item) {
         item.setId(generateId());
@@ -34,14 +34,14 @@ public class Tracker {
     }
 
     /**
-     * Method "replace" is edits item by id
+     * Method "replace" is edits item by id (id not changing)
      * @param id unique id of item to edit
      * @param item item to replace
      */
     public void replace(String id, Item item) {
         for (int i = 0; i < this.item.length; i++) {
             if (id.equals(this.item[i].getId())) {
-                item.setId(generateId());
+                item.setId(this.item[i].getId());
                 this.item[i] = item;
                 break;
             }
