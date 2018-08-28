@@ -1,6 +1,7 @@
 package ru.merkin.application;
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -52,40 +53,49 @@ public class Tracker {
      * Method "delete" is deletes item by id
      * @param id unique id of item to delete
      */
-    public void delete(String id) {
-        int positionToDelete;
-        boolean noSuchId = true;
-
-        for (positionToDelete = 0; positionToDelete < this.position; positionToDelete++) {
-            if (id.equals(this.item[positionToDelete].getId())) {
-                noSuchId = false;
+    public boolean delete(String id) {
+        boolean result = false;
+        for (int i = 0; i < this.position; i++) {
+            if (id.equals(this.item[i].getId())) {
+                System.arraycopy(this.item, i + 1, this.item, i, this.position - i - 1);
+                --this.position;
+                result = true;
                 break;
             }
         }
-        if (noSuchId) {
-            System.out.println("DELETE ITEM: There are no item with id =\"" + id + "\"");
-        } else {
-            if (positionToDelete == this.position - 1) {
-                this.item[positionToDelete] = null;
-                --this.position;
-            } else {
-                System.arraycopy(this.item, positionToDelete + 1, this.item,
-                                positionToDelete, this.position - positionToDelete - 1);
-                --this.position;
-            }
-        }
+        return result;
     }
+
+//    public void delete(String id) {
+//        int positionToDelete;
+//        boolean noSuchId = true;
+//
+//        for (positionToDelete = 0; positionToDelete < this.position; positionToDelete++) {
+//            if (id.equals(this.item[positionToDelete].getId())) {
+//                noSuchId = false;
+//                break;
+//            }
+//        }
+//        if (noSuchId) {
+//            //System.out.println("DELETE ITEM: There are no item with id =\"" + id + "\"");
+//        } else {
+//            if (positionToDelete == this.position - 1) {
+//                this.item[positionToDelete] = null;
+//                --this.position;
+//            } else {
+//                System.arraycopy(this.item, positionToDelete + 1, this.item,
+//                                positionToDelete, this.position - positionToDelete - 1);
+//                --this.position;
+//            }
+//        }
+//    }
 
     /**
      * Method "findAll" finds all actual items
      * @return array of all items
      */
     public Item[] findAll() {
-        Item[] item = new Item[this.position];
-        for (int i = 0; i < this.position; i++) {
-            item[i] = this.item[i];
-        }
-        return item;
+        return Arrays.copyOf(this.item, this.position);
     }
 
     /**
@@ -104,7 +114,6 @@ public class Tracker {
             }
         }
         if (totalMatch == 0) {
-            System.out.println("FIND_ITEM(findByName): There are no item with name contains = \"" + key + "\"" );
             findResult = null;
         } else {
             findResult = new Item[totalMatch];
@@ -122,16 +131,11 @@ public class Tracker {
      */
     public Item findById(String id) {
         Item findResult = new Item();
-        boolean noSuchId = true;
         for (int index = 0; index < this.position; index++) {
             if (id.equals(this.item[index].getId())) {
                 findResult = this.item[index];
-                noSuchId = false;
                 break;
             }
-        }
-        if(noSuchId) {
-            System.out.println("FIND_ITEM(findById): There are no item with id =\"" + id + "\"");
         }
         return findResult;
     }

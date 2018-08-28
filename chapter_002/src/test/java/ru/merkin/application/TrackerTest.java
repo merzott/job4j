@@ -114,7 +114,7 @@ public class TrackerTest {
     @Test
     public void deleteItemComplex() {
         boolean result = true;
-        for (int numOfItems = 1; numOfItems < 5; numOfItems++) {
+        for (int numOfItems = 1; numOfItems <= 4; numOfItems++) {
             for (int numToDelete = 0; numToDelete < numOfItems; numToDelete++) {
                 Tracker tracker = new Tracker();
                 Item[] item = new Item[numOfItems];
