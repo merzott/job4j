@@ -66,30 +66,6 @@ public class Tracker {
         return result;
     }
 
-//    public void delete(String id) {
-//        int positionToDelete;
-//        boolean noSuchId = true;
-//
-//        for (positionToDelete = 0; positionToDelete < this.position; positionToDelete++) {
-//            if (id.equals(this.item[positionToDelete].getId())) {
-//                noSuchId = false;
-//                break;
-//            }
-//        }
-//        if (noSuchId) {
-//            //System.out.println("DELETE ITEM: There are no item with id =\"" + id + "\"");
-//        } else {
-//            if (positionToDelete == this.position - 1) {
-//                this.item[positionToDelete] = null;
-//                --this.position;
-//            } else {
-//                System.arraycopy(this.item, positionToDelete + 1, this.item,
-//                                positionToDelete, this.position - positionToDelete - 1);
-//                --this.position;
-//            }
-//        }
-//    }
-
     /**
      * Method "findAll" finds all actual items
      * @return array of all items
@@ -104,24 +80,15 @@ public class Tracker {
      * @return array of item wich have names equal key param
      */
     public Item[] findByName(String key) {
-        Item[] findResult;
-        int[] findIndex = new int[this.position];
+        Item[] findResult = new Item[100];
         int totalMatch = 0;
 
         for (int index = 0; index < this.position; index++) {
             if (key.equals(this.item[index].getName())) {
-                findIndex[totalMatch++] = index;
+                findResult[totalMatch++] = this.item[index];
             }
         }
-        if (totalMatch == 0) {
-            findResult = null;
-        } else {
-            findResult = new Item[totalMatch];
-            for (int index = 0; index < totalMatch; index++) {
-                findResult[index] = this.item[findIndex[index]];
-            }
-        }
-        return findResult;
+        return Arrays.copyOf(findResult, totalMatch);
     }
 
     /**
@@ -139,7 +106,5 @@ public class Tracker {
         }
         return findResult;
     }
-
-
 
 }

@@ -1,6 +1,9 @@
 package ru.merkin.application;
 
 import org.junit.Test;
+
+import java.util.Arrays;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -126,20 +129,52 @@ public class TrackerTest {
                 }
                 tracker.delete(id[numToDelete]);
                 findItem = tracker.findByName(String.valueOf(numOfItems));
-                if (numOfItems == 1) {
-                    result &= (findItem == null);
-                } else {
-                    result &= (findItem.length == numOfItems - 1);
-                    for (int i = 0; i < findItem.length; i++) {
-                        if (i < numToDelete) {
-                            result &= findItem[i].getId().equals(id[i]);
-                        } else {
-                            result &= findItem[i].getId().equals(id[i + 1]);
-                        }
+                result &= (findItem.length == numOfItems - 1);
+                for (int i = 0; i < findItem.length; i++) {
+                    if (i < numToDelete) {
+                        result &= findItem[i].getId().equals(id[i]);
+                    } else {
+                        result &= findItem[i].getId().equals(id[i + 1]);
                     }
                 }
             }
         }
         assertThat(result, is(true));
     }
+
+    /**
+     * Test for "delete" method.
+     * deletes last item from the fully completed Tracker
+     */
+    @Test
+    public void deleteLastItemWhenTrackerIsFull() {
+        Tracker tracker = new Tracker();
+        Item[]items = new Item[100];
+        for (int i = 0; i < 100; i++ ) {
+            Item item = new Item("i" + i);
+            tracker.addItem(item);
+            items[i] = item;
+        }
+        Item[] expect = Arrays.copyOf(items, 99);
+        tracker.delete(items[99].getId());
+        assertThat(tracker.findAll(),is(expect));
+    }
+
+    /**
+     * Test for "findAll" method.
+     */
+    @Test
+    public void findAll() {
+        Tracker tracker = new Tracker();
+        Item[]items = new Item[100];
+        for (int i = 0; i < 100; i++ ) {
+            Item item = new Item("i" + i);
+            tracker.addItem(item);
+            items[i] = item;
+        }
+        assertThat(tracker.findAll(),is(items));
+    }
 }
+
+
+
