@@ -11,7 +11,7 @@ public class Item {
     }
 
     public String toString() {
-        return ("id - " + this.getId() + " name - " + this.getName());
+        return "id = " + this.getId() + " name = " + this.getName();
     }
     public void setName(String name) {
         this.name = name;

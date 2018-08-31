@@ -92,7 +92,7 @@ public class StartUI {
         Item[] find = this.tracker.findAll();
         if (find.length > 0) {
             for (Item item : find) {
-                System.out.println("id = " + item.getId() + " name = " + item.getName());
+                System.out.println(item.toString());
             }
         } else {
             System.out.println("FIND ALL: There are no items to find. Tracker is empty");
@@ -108,7 +108,7 @@ public class StartUI {
         if (edit != null) {
             edit.setName(this.consoleInput.ask("Enter new Item name: "));
             if (this.tracker.replace(id, edit))
-                System.out.println("EDIT: Success. id - " + edit.getId() + " name - "+ edit.getName());
+                System.out.println("EDIT: Success. " + edit.toString());
             else
                 System.out.println("EDIT: Fail. Unknown fail.");
         } else {
@@ -139,7 +139,7 @@ public class StartUI {
         String id = this.consoleInput.ask("Enter id of Item to find: ");
         Item item = this.tracker.findById(id);
         if (item != null)
-            System.out.println("id = " + item.getId() + " name = " + item.getName());
+            System.out.println(item.toString());
         else
             System.out.println("FIND BY ID: item not found. id - " + id + "Doesn't exist");
     }
@@ -152,7 +152,7 @@ public class StartUI {
         Item[] find = this.tracker.findByName(name);
         if(find.length > 0) {
             for(Item item: find) {
-                System.out.println("id = " + item.getId() + " name = " + item.getName());
+                System.out.println(item.toString());
             }
         } else {
             System.out.println("FIND BY NAME: item not found. Item with name \"" + name + "\" isn't exist");
