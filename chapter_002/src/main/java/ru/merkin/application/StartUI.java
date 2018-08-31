@@ -59,7 +59,7 @@ public class StartUI {
     }
     private void showAllItems() {
         for(Item item: this.tracker.findAll()) {
-            System.out.println("id = " + item.getId() + " name = " + item.getName());
+            System.out.println(item.toString());
         }
     }
     private void editAnItem() {
@@ -71,11 +71,11 @@ public class StartUI {
     }
     private void findAnItemById() {
         Item item = this.tracker.findById(this.consoleInput.ask("Enter id of Item to find: "));
-        System.out.println("id = " + item.getId() + " name = " + item.getName());
+        System.out.println(item.toString());
     }
     private void findAnItemByName() {
         for(Item item: this.tracker.findByName(this.consoleInput.ask("Enter name of items to find: "))) {
-            System.out.println("id = " + item.getId() + " name = " + item.getName());
+            System.out.println(item.toString());
         }
     }
     private void wrongItem() {
