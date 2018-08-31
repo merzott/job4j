@@ -40,14 +40,17 @@ public class Tracker {
      * @param id unique id of item to edit
      * @param item item to replace
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean result = false;
         for (int i = 0; i < this.item.length; i++) {
             if (id.equals(this.item[i].getId())) {
                 item.setId(this.item[i].getId());
                 this.item[i] = item;
+                result = true;
                 break;
             }
         }
+        return result;
     }
 
     /**
@@ -98,7 +101,7 @@ public class Tracker {
      * @return item wich id equals id param
      */
     public Item findById(String id) {
-        Item findResult = new Item();
+        Item findResult = null;
         for (int index = 0; index < this.position; index++) {
             if (id.equals(this.item[index].getId())) {
                 findResult = this.item[index];
