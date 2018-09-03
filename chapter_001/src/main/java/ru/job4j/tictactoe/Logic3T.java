@@ -38,10 +38,10 @@ public class Logic3T {
         boolean result = false;
         result  |= this.fillBy(Figure3T::hasMarkX, 0, 0, 1, 1);
         result  |= this.fillBy(Figure3T::hasMarkX, this.table.length - 1, 0, -1, 1);
-        for (int i = 0; i < this.table.length; i++) {
+        for (int i = 0; i < this.table.length && !result; i++) {
             result  |=  this.fillBy(Figure3T::hasMarkX, 0, i, 1, 0);
         }
-        for (int i = 0; i < this.table[0].length; i++) {
+        for (int i = 0; i < this.table[0].length && !result; i++) {
             result  |=  this.fillBy(Figure3T::hasMarkX, i, 0, 0, 1);
         }
         return result;
@@ -55,10 +55,10 @@ public class Logic3T {
         boolean result = false;
         result  |= this.fillBy(Figure3T::hasMarkO, 0, 0, 1, 1);
         result  |= this.fillBy(Figure3T::hasMarkO, this.table.length - 1, 0, -1, 1);
-        for (int i = 0; i < this.table.length; i++) {
+        for (int i = 0; i < this.table.length && !result; i++) {
             result  |=  this.fillBy(Figure3T::hasMarkO, 0, i, 1, 0);
         }
-        for (int i = 0; i < this.table[0].length; i++) {
+        for (int i = 0; i < this.table[0].length && !result; i++) {
             result  |=  this.fillBy(Figure3T::hasMarkO, i, 0, 0, 1);
         }
         return result;
