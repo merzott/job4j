@@ -150,14 +150,14 @@ public class TrackerTest {
     public void deleteLastItemWhenTrackerIsFull() {
         Tracker tracker = new Tracker();
         Item[]items = new Item[100];
-        for (int i = 0; i < 100; i++ ) {
+        for (int i = 0; i < 100; i++) {
             Item item = new Item("i" + i);
             tracker.addItem(item);
             items[i] = item;
         }
         Item[] expect = Arrays.copyOf(items, 99);
         tracker.delete(items[99].getId());
-        assertThat(tracker.findAll(),is(expect));
+        assertThat(tracker.findAll(), is(expect));
     }
 
     /**
@@ -167,12 +167,12 @@ public class TrackerTest {
     public void findAll() {
         Tracker tracker = new Tracker();
         Item[]items = new Item[100];
-        for (int i = 0; i < 100; i++ ) {
+        for (int i = 0; i < 100; i++) {
             Item item = new Item("i" + i);
             tracker.addItem(item);
             items[i] = item;
         }
-        assertThat(tracker.findAll(),is(items));
+        assertThat(tracker.findAll(), is(items));
     }
 }
 

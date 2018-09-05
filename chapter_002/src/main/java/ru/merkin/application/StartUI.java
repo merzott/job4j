@@ -1,8 +1,7 @@
 package ru.merkin.application;
 
-import jdk.internal.util.xml.impl.Input;
+//import jdk.internal.util.xml.impl.Input;
 
-import java.util.Scanner;
 /**
  * Class StartUI realises user interface to Tracker.
  * @author Roman Merkin
@@ -11,7 +10,7 @@ import java.util.Scanner;
  */
 public class StartUI {
     private Tracker tracker;
-    private ConsoleInput consoleInput;
+    private Input input;
     private static final String ADD_ITEM           = "1";
     private static final String SHOW_ALL_ITEMS     = "2";
     private static final String EDIT_ITEM          = "3";
@@ -22,12 +21,12 @@ public class StartUI {
 
     /**
      * Constructor of StartUI.
-     * @param consoleInput set user communication interface
+     * @param input set user communication interface
      * @param tracker set Tracker
      */
-    public StartUI(ConsoleInput consoleInput, Tracker tracker) {
+    public StartUI(Input input, Tracker tracker) {
         this.tracker = tracker;
-        this.consoleInput = consoleInput;
+        this.input = input;
     }
 
     /**
@@ -36,13 +35,13 @@ public class StartUI {
     public static void showMenu() {
         StringBuilder menu = new StringBuilder();
         menu.append(System.lineSeparator())
-                .append("Menu:" ).append(System.lineSeparator())
-                .append("1. Add new Item" ).append(System.lineSeparator())
-                .append("2. Show all items"  ).append(System.lineSeparator())
-                .append("3. Edit item" ).append(System.lineSeparator())
-                .append("4. Delete Item"  ).append(System.lineSeparator())
-                .append("5. Find Item by id" ).append(System.lineSeparator())
-                .append("6. Find Items by name" ).append(System.lineSeparator())
+                .append("Menu:").append(System.lineSeparator())
+                .append("1. Add new Item").append(System.lineSeparator())
+                .append("2. Show all items").append(System.lineSeparator())
+                .append("3. Edit item").append(System.lineSeparator())
+                .append("4. Delete Item").append(System.lineSeparator())
+                .append("5. Find Item by id").append(System.lineSeparator())
+                .append("6. Find Items by name").append(System.lineSeparator())
                 .append("7. Exit program").append(System.lineSeparator());
         System.out.println(menu);
     }
@@ -52,7 +51,7 @@ public class StartUI {
      * @return user input word
      */
     public String getChoice() {
-        return this.consoleInput.ask("enter the menu item: ");
+        return this.input.ask("enter the menu item: ");
     }
 
     /**
@@ -82,7 +81,7 @@ public class StartUI {
      * Method addAnItem is realising user interface to add an item to tracker
      */
     private void addAnItem() {
-        this.tracker.addItem(new Item(this.consoleInput.ask("enter new Item name: ")));
+        this.tracker.addItem(new Item(this.input.ask("enter new Item name: ")));
     }
 
     /**
@@ -103,14 +102,15 @@ public class StartUI {
      * Method editAnItem is realising user interface to edit an item
      */
     private void editAnItem() {
-        String id = this.consoleInput.ask("Enter id of Item to edit: ");
+        String id = this.input.ask("Enter id of Item to edit: ");
         Item edit = this.tracker.findById(id);
         if (edit != null) {
-            edit.setName(this.consoleInput.ask("Enter new Item name: "));
-            if (this.tracker.replace(id, edit))
+            edit.setName(this.input.ask("Enter new Item name: "));
+            if (this.tracker.replace(id, edit)) {
                 System.out.println("EDIT: Success. " + edit.toString());
-            else
+            } else {
                 System.out.println("EDIT: Fail. Unknown fail.");
+            }
         } else {
             System.out.println("EDIT: Fail. There are no Item with id - " + id);
         }
@@ -121,12 +121,13 @@ public class StartUI {
      * Method editAnItem is realising user interface to delete an item
      */
     private void deleteAnItem() {
-        String id = this.consoleInput.ask("Enter id of Item to delete: ");
+        String id = this.input.ask("Enter id of Item to delete: ");
         if (this.tracker.findById(id) != null) {
-            if (this.tracker.delete(id))
+            if (this.tracker.delete(id)) {
                 System.out.println("DELETE: Success");
-            else
+            } else {
                 System.out.println("DELETE: Fail. Unknown fail.");
+            }
         } else {
             System.out.println("DELETE: Fail. There are no Item with id - " + id);
         }
@@ -136,22 +137,23 @@ public class StartUI {
      * Method findAnItemById is realising user interface to find an item by id
      */
     private void findAnItemById() {
-        String id = this.consoleInput.ask("Enter id of Item to find: ");
+        String id = this.input.ask("Enter id of Item to find: ");
         Item item = this.tracker.findById(id);
-        if (item != null)
+        if (item != null) {
             System.out.println(item.toString());
-        else
+        } else {
             System.out.println("FIND BY ID: item not found. id - " + id + "Doesn't exist");
+        }
     }
 
     /**
      * Method findAnItemByName is realising user interface to find items by name
      */
     private void findAnItemByName() {
-        String name = this.consoleInput.ask("Enter name of items to find: ");
+        String name = this.input.ask("Enter name of items to find: ");
         Item[] find = this.tracker.findByName(name);
-        if(find.length > 0) {
-            for(Item item: find) {
+        if (find.length > 0) {
+            for (Item item: find) {
                 System.out.println(item.toString());
             }
         } else {

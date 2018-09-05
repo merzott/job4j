@@ -1,6 +1,5 @@
 package ru.merkin.application;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -13,7 +12,7 @@ import java.util.Random;
  */
 public class Tracker {
     private Item[] item = new Item[100];
-    private static final Random random = new Random();
+    private static final Random RANDOM = new Random();
     private int position;
 
     /**
@@ -21,7 +20,7 @@ public class Tracker {
      * @return unique Id ot type String
      */
     private String generateId() {
-        return String.valueOf(this.random.nextInt() + System.currentTimeMillis());
+        return String.valueOf(this.RANDOM.nextInt() + System.currentTimeMillis());
     }
 
     /**
