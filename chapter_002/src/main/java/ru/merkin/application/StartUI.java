@@ -35,6 +35,13 @@ public class StartUI {
      * Method showMenu is show main menu.
      */
     public static void showMenu() {
+        System.out.println(Menu().toString());
+    }
+
+    /**
+     * Method Menu generates menu like StringBuilder value.
+     */
+    public static StringBuilder Menu() {
         StringBuilder menu = new StringBuilder();
         menu.append(System.lineSeparator())
                 .append("Menu:").append(System.lineSeparator())
@@ -45,7 +52,7 @@ public class StartUI {
                 .append("5. Find Item by id").append(System.lineSeparator())
                 .append("6. Find Items by name").append(System.lineSeparator())
                 .append("7. Exit program").append(System.lineSeparator());
-        System.out.println(menu);
+        return menu;
     }
 
     /**
