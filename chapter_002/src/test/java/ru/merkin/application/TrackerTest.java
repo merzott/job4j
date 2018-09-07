@@ -9,6 +9,7 @@ import static org.junit.Assert.assertThat;
 
 /**
  * Test for "Tracker" Class.
+ *
  * @author Roman Merkin
  * @version $Id$
  * @since 0.1
@@ -149,7 +150,7 @@ public class TrackerTest {
     @Test
     public void deleteLastItemWhenTrackerIsFull() {
         Tracker tracker = new Tracker();
-        Item[]items = new Item[100];
+        Item[] items = new Item[100];
         for (int i = 0; i < 100; i++) {
             Item item = new Item("i" + i);
             tracker.addItem(item);
@@ -166,7 +167,7 @@ public class TrackerTest {
     @Test
     public void findAll() {
         Tracker tracker = new Tracker();
-        Item[]items = new Item[100];
+        Item[] items = new Item[100];
         for (int i = 0; i < 100; i++) {
             Item item = new Item("i" + i);
             tracker.addItem(item);

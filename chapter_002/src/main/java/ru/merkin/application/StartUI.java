@@ -4,6 +4,7 @@ package ru.merkin.application;
 
 /**
  * Class StartUI realises user interface to Tracker.
+ *
  * @author Roman Merkin
  * @version $Id$
  * @since 0.1
@@ -11,17 +12,18 @@ package ru.merkin.application;
 public class StartUI {
     private Tracker tracker;
     private Input input;
-    private static final String ADD_ITEM           = "1";
-    private static final String SHOW_ALL_ITEMS     = "2";
-    private static final String EDIT_ITEM          = "3";
-    private static final String DELETE_ITEM        = "4";
-    private static final String FIND_ITEM_BY_ID    = "5";
-    private static final String FIND_ITEM_BY_NAME  = "6";
-    private static final String EXIT_PROGRAM       = "7";
+    private static final String ADD_ITEM = "1";
+    private static final String SHOW_ALL_ITEMS = "2";
+    private static final String EDIT_ITEM = "3";
+    private static final String DELETE_ITEM = "4";
+    private static final String FIND_ITEM_BY_ID = "5";
+    private static final String FIND_ITEM_BY_NAME = "6";
+    private static final String EXIT_PROGRAM = "7";
 
     /**
      * Constructor of StartUI.
-     * @param input set user communication interface
+     *
+     * @param input   set user communication interface
      * @param tracker set Tracker
      */
     public StartUI(Input input, Tracker tracker) {
@@ -48,6 +50,7 @@ public class StartUI {
 
     /**
      * Method getChoice is asking to choose menu item
+     *
      * @return user input word
      */
     public String getChoice() {
@@ -63,14 +66,29 @@ public class StartUI {
             showMenu();
             choice = getChoice();
             switch (choice) {
-                case ADD_ITEM           : this.addAnItem();         break;
-                case SHOW_ALL_ITEMS     : this.showAllItems();      break;
-                case EDIT_ITEM          : this.editAnItem();        break;
-                case DELETE_ITEM        : this.deleteAnItem();      break;
-                case FIND_ITEM_BY_ID    : this.findAnItemById();    break;
-                case FIND_ITEM_BY_NAME  : this.findAnItemByName();  break;
-                case EXIT_PROGRAM       :                           break;
-                default                 : this.wrongChoice();         break;
+                case ADD_ITEM:
+                    this.addAnItem();
+                    break;
+                case SHOW_ALL_ITEMS:
+                    this.showAllItems();
+                    break;
+                case EDIT_ITEM:
+                    this.editAnItem();
+                    break;
+                case DELETE_ITEM:
+                    this.deleteAnItem();
+                    break;
+                case FIND_ITEM_BY_ID:
+                    this.findAnItemById();
+                    break;
+                case FIND_ITEM_BY_NAME:
+                    this.findAnItemByName();
+                    break;
+                case EXIT_PROGRAM:
+                    break;
+                default:
+                    this.wrongChoice();
+                    break;
 
             }
 
@@ -153,7 +171,7 @@ public class StartUI {
         String name = this.input.ask("Enter name of items to find: ");
         Item[] find = this.tracker.findByName(name);
         if (find.length > 0) {
-            for (Item item: find) {
+            for (Item item : find) {
                 System.out.println(item.toString());
             }
         } else {

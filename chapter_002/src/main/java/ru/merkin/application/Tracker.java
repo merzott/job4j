@@ -6,6 +6,7 @@ import java.util.Random;
 
 /**
  * Class "Tracker" is array of items with API
+ *
  * @author Roman Merkin
  * @version $Id$
  * @since 0.1
@@ -17,6 +18,7 @@ public class Tracker {
 
     /**
      * Method "generateId" generates unique Id for Item
+     *
      * @return unique Id ot type String
      */
     private String generateId() {
@@ -25,6 +27,7 @@ public class Tracker {
 
     /**
      * Method "addItem" is register new item to system
+     *
      * @param item new item
      * @return item with generated id
      */
@@ -36,7 +39,8 @@ public class Tracker {
 
     /**
      * Method "replace" is edits item by id (id not changing)
-     * @param id unique id of item to edit
+     *
+     * @param id   unique id of item to edit
      * @param item item to replace
      */
     public boolean replace(String id, Item item) {
@@ -54,6 +58,7 @@ public class Tracker {
 
     /**
      * Method "delete" is deletes item by id
+     *
      * @param id unique id of item to delete
      */
     public boolean delete(String id) {
@@ -71,6 +76,7 @@ public class Tracker {
 
     /**
      * Method "findAll" finds all actual items
+     *
      * @return array of all items
      */
     public Item[] findAll() {
@@ -79,6 +85,7 @@ public class Tracker {
 
     /**
      * Method "findByName" finds all items by name
+     *
      * @param key name of item
      * @return array of item wich have names equal key param
      */
@@ -96,6 +103,7 @@ public class Tracker {
 
     /**
      * Method "findById" finds item by Id
+     *
      * @param id id of item
      * @return item wich id equals id param
      */

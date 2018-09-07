@@ -4,8 +4,6 @@ public class Item {
     private String name;
     private String id;
 
-    Item() { }
-
     Item(String name) {
         this.name = name;
     }
@@ -13,6 +11,7 @@ public class Item {
     public String toString() {
         return "id = " + this.getId() + " name = " + this.getName();
     }
+
     public void setName(String name) {
         this.name = name;
     }

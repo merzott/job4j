@@ -2,17 +2,19 @@ package ru.merkin.test;
 
 public class Test {
     final static int SIZE = 10;
-    final static String hello = "hello";
+    final static String HELLO = "hello";
     int i;
 
     public Test() {
 
     }
+
     public Test(int i) {
         this.i = i;
     }
+
     final static void printHello() {
-        System.out.println(hello);
+        System.out.println(HELLO);
     }
 
 //    public static void main(String[] args) {
