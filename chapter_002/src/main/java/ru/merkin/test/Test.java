@@ -13,7 +13,7 @@ public class Test {
         this.i = i;
     }
 
-    final static void printHello() {
+    static void printHello() {
         System.out.println(HELLO);
     }
 

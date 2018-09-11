@@ -17,6 +17,10 @@ public class TestSub extends Test {
         TestSub.numOfObjects++;
     }
 
+    static void printHello() {
+        System.out.println("121");
+    }
+
     @Override
     public String toString() {
         return String.valueOf(this.size);
@@ -24,10 +28,14 @@ public class TestSub extends Test {
 
     public static void main(String[] args) {
         TestSub.printHello();
+        Test.printHello();
         System.out.println(TestSub.SIZE);
         new TestSub();
         new TestSub();
         new TestSub();
+        //Integer ii = new Integer(5);
+        Object a = new String();
+        System.out.println(a.getClass());
         TestSub test = new TestSub(3001);
         System.out.println(new TestSub().toString() + new TestSub().toString());
         System.out.format("hello %6x %tr" + System.lineSeparator(), test.size, new Date());
