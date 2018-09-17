@@ -23,6 +23,7 @@
 hs_err_pid*
 
 target
+chapter_002/src/main/java/ru/merkin/test/
 
 .idea
 *.iml
