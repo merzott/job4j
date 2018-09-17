@@ -18,6 +18,16 @@ import static org.junit.Assert.assertThat;
 public class StartUITest {
     private PrintStream stdout = System.out;
     private ByteArrayOutputStream out = new ByteArrayOutputStream();
+    private final String menu = new StringBuilder(System.lineSeparator())
+            .append("Menu:").append(System.lineSeparator())
+            .append("1. Add new Item").append(System.lineSeparator())
+            .append("2. Show all items").append(System.lineSeparator())
+            .append("3. Edit item").append(System.lineSeparator())
+            .append("4. Delete Item").append(System.lineSeparator())
+            .append("5. Find Item by id").append(System.lineSeparator())
+            .append("6. Find Items by name").append(System.lineSeparator())
+            .append("7. Exit program").append(System.lineSeparator())
+            .toString();
 
     private void loadOutput() {
         System.setOut(new PrintStream(this.out));
@@ -35,11 +45,11 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.addItem(new Item("name"));
         StringBuilder expect = new StringBuilder()
-                .append(StartUI.Menu())
+                .append(menu)
                 .append(System.lineSeparator())
                 .append(item.toString())
                 .append(System.lineSeparator())
-                .append(StartUI.Menu())
+                .append(menu)
                 .append(System.lineSeparator());
         loadOutput();
         Input input = new StubInput(new String[]{"2", "7"});
@@ -56,11 +66,11 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.addItem(new Item("name"));
         StringBuilder expect = new StringBuilder()
-                .append(StartUI.Menu())
+                .append(menu)
                 .append(System.lineSeparator())
                 .append(item.toString())
                 .append(System.lineSeparator())
-                .append(StartUI.Menu())
+                .append(menu)
                 .append(System.lineSeparator());
         loadOutput();
         Input input = new StubInput(new String[]{"5", item.getId(), "7"});
@@ -77,11 +87,11 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.addItem(new Item("name"));
         StringBuilder expect = new StringBuilder()
-                .append(StartUI.Menu())
+                .append(menu)
                 .append(System.lineSeparator())
                 .append(item.toString())
                 .append(System.lineSeparator())
-                .append(StartUI.Menu())
+                .append(menu)
                 .append(System.lineSeparator());
         loadOutput();
         Input input = new StubInput(new String[]{"6", item.getName(), "7"});

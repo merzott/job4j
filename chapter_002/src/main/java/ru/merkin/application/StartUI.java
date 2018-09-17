@@ -19,6 +19,16 @@ public class StartUI {
     private static final String FIND_ITEM_BY_ID = "5";
     private static final String FIND_ITEM_BY_NAME = "6";
     private static final String EXIT_PROGRAM = "7";
+    private final String menu = new StringBuilder(System.lineSeparator())
+            .append("Menu:").append(System.lineSeparator())
+            .append("1. Add new Item").append(System.lineSeparator())
+            .append("2. Show all items").append(System.lineSeparator())
+            .append("3. Edit item").append(System.lineSeparator())
+            .append("4. Delete Item").append(System.lineSeparator())
+            .append("5. Find Item by id").append(System.lineSeparator())
+            .append("6. Find Items by name").append(System.lineSeparator())
+            .append("7. Exit program").append(System.lineSeparator())
+            .toString();
 
     /**
      * Constructor of StartUI.
@@ -34,25 +44,8 @@ public class StartUI {
     /**
      * Method showMenu is show main menu.
      */
-    public static void showMenu() {
-        System.out.println(Menu().toString());
-    }
-
-    /**
-     * Method Menu generates menu like StringBuilder value.
-     */
-    public static StringBuilder Menu() {
-        StringBuilder menu = new StringBuilder();
-        menu.append(System.lineSeparator())
-                .append("Menu:").append(System.lineSeparator())
-                .append("1. Add new Item").append(System.lineSeparator())
-                .append("2. Show all items").append(System.lineSeparator())
-                .append("3. Edit item").append(System.lineSeparator())
-                .append("4. Delete Item").append(System.lineSeparator())
-                .append("5. Find Item by id").append(System.lineSeparator())
-                .append("6. Find Items by name").append(System.lineSeparator())
-                .append("7. Exit program").append(System.lineSeparator());
-        return menu;
+    public void showMenu() {
+        System.out.println(menu);
     }
 
     /**
