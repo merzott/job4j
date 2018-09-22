@@ -2,6 +2,9 @@ package ru.merkin.application;
 
 //import jdk.internal.util.xml.impl.Input;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Class StartUI realises user interface to Tracker.
  *
@@ -61,38 +64,15 @@ public class StartUI {
      * Method init is showing main menu and is realising it's work.
      */
     public void init() {
-        String choice = "not initialized";
-        while (!EXIT_PROGRAM.equals(choice)) {
-            showMenu();
-            choice = getChoice();
-            switch (choice) {
-                case ADD_ITEM:
-                    this.addAnItem();
-                    break;
-                case SHOW_ALL_ITEMS:
-                    this.showAllItems();
-                    break;
-                case EDIT_ITEM:
-                    this.editAnItem();
-                    break;
-                case DELETE_ITEM:
-                    this.deleteAnItem();
-                    break;
-                case FIND_ITEM_BY_ID:
-                    this.findAnItemById();
-                    break;
-                case FIND_ITEM_BY_NAME:
-                    this.findAnItemByName();
-                    break;
-                case EXIT_PROGRAM:
-                    break;
-                default:
-                    this.wrongChoice();
-                    break;
-
-            }
-
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
+        menu.fillActions();
+        for (int i = 0; i < menu.getActionLength(); i++) {
+            range.add(menu.getActionKey(i));
         }
+        do {
+            menu.show();
+        } while (menu.select(range.indexOf(Integer.parseInt(input.ask("select: ")))));
     }
 
     /**
@@ -132,7 +112,6 @@ public class StartUI {
         } else {
             System.out.println("EDIT: Fail. There are no Item with id - " + id);
         }
-
     }
 
     /**
