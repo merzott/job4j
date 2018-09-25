@@ -15,6 +15,10 @@ import java.util.List;
 public class StartUI {
     private Tracker tracker;
     private Input input;
+    /**
+     * Menu working flag
+     */
+    private boolean isWorking = true;
     private static final String ADD_ITEM = "1";
     private static final String SHOW_ALL_ITEMS = "2";
     private static final String EDIT_ITEM = "3";
@@ -45,6 +49,14 @@ public class StartUI {
     }
 
     /**
+     *  Method "setIsWorking" gets isWorking value
+     * @return isWorking value
+     */
+    public void setIsWorking(boolean isWorking) {
+        this.isWorking = isWorking;
+    }
+
+    /**
      * Method showMenu is show main menu.
      */
     public void showMenu() {
@@ -65,14 +77,12 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        List<Integer> range = new ArrayList<>();
-        menu.fillActions();
-        for (int i = 0; i < menu.getActionLength(); i++) {
-            range.add(menu.getActionKey(i));
-        }
+        menu.fillActions(this);
+        List<Integer> range = menu.getActionsRange();
         do {
             menu.show();
-        } while (menu.select(range.indexOf(Integer.parseInt(input.ask("select: ")))));
+            menu.select(range.indexOf(Integer.parseInt(input.ask("select: "))));
+        } while (isWorking);
     }
 
     /**

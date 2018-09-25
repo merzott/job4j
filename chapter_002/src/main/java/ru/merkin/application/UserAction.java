@@ -16,7 +16,7 @@ public interface UserAction {
      * @param tracker Tracker object
      * @return true if action is not final and further work is expected, false if action is final(like "exit")
      */
-    boolean execute(Input input, Tracker tracker);
+    void execute(Input input, Tracker tracker);
 
     /**
      * Method "info" is inform what UserAction is doing(menu item name)
