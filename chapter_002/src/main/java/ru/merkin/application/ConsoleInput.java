@@ -9,7 +9,7 @@ public class ConsoleInput implements Input {
     /**
      * Variable "scanner" contains user input stream.
      */
-    private Scanner scanner = new Scanner(System.in);
+    protected Scanner scanner = new Scanner(System.in);
 
     /**
      * Method "ask" give the next answer to the question.

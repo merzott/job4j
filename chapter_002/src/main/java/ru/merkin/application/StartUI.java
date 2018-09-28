@@ -81,7 +81,7 @@ public class StartUI {
         List<Integer> range = menu.getActionsRange();
         do {
             menu.show();
-            menu.select(range.indexOf(Integer.parseInt(input.ask("select: "))));
+            menu.select(range.indexOf(Integer.parseInt(String.valueOf(input.ask("select: ", range)))));
         } while (isWorking);
     }
 
@@ -176,7 +176,7 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 
 }
