@@ -8,8 +8,5 @@ import java.util.List;
 public interface Input {
     String ask(String question);
 
-    default int ask(String question, List<Integer> range) throws MenuOutException {
-        System.out.println("Error: method ask(String question, List<Integer> range) in Input interface is not overloaded");
-        return -1;
-    }
+    int ask(String question, List<Integer> range) throws MenuOutException;
 }
