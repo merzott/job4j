@@ -52,7 +52,7 @@ public class StartUITest {
                 .append(menu)
                 .append(System.lineSeparator());
         loadOutput();
-        Input input = new StubInput(new String[]{"2", "7"});
+        Input input = new ValidateInput(new StubInput(new String[]{"2", "7"}));
         new StartUI(input, tracker).init();
         backOutput();
         assertThat(new String(out.toByteArray()), is(expect.toString()));
