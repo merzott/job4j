@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.is;
 /**
  * //TODO add comments.
  *
- * @author Petr Arsentev (parsentev@yandex.ru)
+ * @author Roman Merkin
  * @version $Id$
  * @since 0.1
  */
